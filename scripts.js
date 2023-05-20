@@ -8,6 +8,7 @@ tableDiv.classList.add('tableHolder');
 
 function dataGrab() {
   if (!tableAdded) {
+    buttonEl.classList.add('clicked');
     fetch('https://jsonplaceholder.typicode.com/users', {}).then((response) => {
       return response.json();
     }).then((data) => {
@@ -15,6 +16,7 @@ function dataGrab() {
         const dataCell = document.createElement('div');
         const nameEl = document.createElement('p');
         const emailEl = document.createElement('p');
+        dataCell.classList.add('dataCell')
         nameEl.textContent = `Name: ${el.name}`;
         emailEl.textContent = `E-mail: ${el.email}`;
         dataCell.append(nameEl, emailEl);
