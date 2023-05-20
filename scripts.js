@@ -11,6 +11,9 @@ function dataGrab() {
   if (!tableAdded) {
     buttonEl.classList.add('clicked');
     fetch('https://jsonplaceholder.typicode.com/users', {}).then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
       return response.json();
     }).then((data) => {
       data.forEach((el) => {
@@ -23,8 +26,12 @@ function dataGrab() {
         dataCell.append(nameEl, emailEl);
         tableDiv.append(dataCell);
       })
+    }).catch((err) => {
+      console.error(`Error: ${err}`)
     });
     mainEl.append(tableDiv);
     tableAdded = true;
   }
 };
+
+// Asyn/Await methodology
