@@ -6,6 +6,7 @@ let tableAdded = false;
 buttonEl.addEventListener('click', dataGrab);
 tableDiv.classList.add('tableHolder');
 
+// Using .then methodology
 function dataGrab() {
   if (!tableAdded) {
     buttonEl.classList.add('clicked');
