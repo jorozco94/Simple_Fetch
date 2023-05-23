@@ -4,13 +4,20 @@
   padding: 0;
 }
 
-/* :root {
-
-} */
+:root {
+  --first-gradient-col: #f6d7c7;
+  --second-gradient-col: #ee7678;
+  --default-margins: 20px;
+  --button-border-col: rgb(229, 152, 248);
+  --button-bg-col: rgb(235, 174, 251);
+  --button-hover-col: rgb(239, 204, 248);
+  --default-padding: 3px;
+  --button-border-rad: 4px;
+}
 
 html, body {
   height: 100%;
-  background: linear-gradient(to bottom right, #f6d7c7, #ee7678);
+  background: linear-gradient(to bottom right, var(--first-gradient-col), var(--second-gradient-col));
   background-repeat: no-repeat;
   background-size: 100%;
   text-align: center;
@@ -19,7 +26,7 @@ html, body {
 main {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: var(--default-margins);
   height: 100%;
   overflow: auto;
 }
@@ -29,46 +36,48 @@ main::-webkit-scrollbar {
 }
 
 h2 {
-  margin: 20px 20px 0 20px;
+  margin: var(--default-margins) var(--default-margins) 0 var(--default-margins);
 }
 
 button {
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid rgb(229, 152, 248);
-  background-color: rgb(235, 174, 251);
-  margin: 20px;
+  padding: calc(var(--default-padding) * 3);
+  border-radius: var(--button-border-rad);
+  border: 1px solid var(--button-border-col);
+  background-color: var(--button-bg-col);
+  margin: var(--default-margins);
   align-self: center;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: rgb(239, 204, 248);
+  background-color: var(--button-hover-col);
 }
 
 button.clicked {
   animation: buttonClick 0.3s;
 }
 
+p {
+  padding: var(--default-padding);
+}
+
+/* Dynamic Content (Contact Info Table) */
 .tableHolder {
   align-self: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--default-margins);
 }
 
 .dataCell {
   border: 3px solid white;
-  padding: 3px;
+  padding: var(--default-padding);
 }
 
 .dataCell:not(:first-child) {
   border-top: none;
 }
 
-p {
-  padding: 3px;
-}
-
+/* Animation on button click */
 @keyframes buttonClick {
   0% {
     transform: scale(1);
